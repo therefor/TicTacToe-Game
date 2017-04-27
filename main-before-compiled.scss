@@ -1,0 +1,236 @@
+/*本文件为编译前的SCSS代码，经由SASS编译后的CSS代码为main.css*/
+
+$greenColor: #133a26;
+$lightGreen: #1f603f;
+$whiteColor: #f2f2f2;
+$lightGrey: #8c8c8c;
+$brown: #4d1a00;
+$lightBrown: #cc4400;
+$gameWidth: 330px;
+$gameHeight: 330px;
+$xoWidth: 105px;
+
+/* Basic Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+
+  /* Disable mouse selection */
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
+}
+
+body{
+  background-color: $whiteColor;
+  text-align: center;
+  font-family: "Architects Daughter", "Helvetica", "sans-serif";
+  color: $whiteColor;
+  margin: 0;
+  padding: 0;
+}
+
+.main{
+  position :relative;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 420px;
+  height: 420px;
+}
+
+.frame{
+  width: 370px;
+  height: 420px;
+  background-color: #ffbf80;
+  border: none;
+  border-radius: 6%;
+  box-shadow: 8px 8px 18px #1f2d2d, -5px -5px 18px 0px #141f1f inset;
+}
+
+.scoreBoard {
+  display: flex;
+  visibility: hidden;
+  width: 300px;
+  height: 45px;
+  margin: auto;
+  line-height:30px;
+  font-size: 15px;
+  .playerOne, .playerTwo{
+    color: $brown;
+    width: 100px;
+    margin: auto;
+    line-height:30px;
+  }
+  .reset{
+    border: none;
+    margin-left: 75px;
+    font-size: 18px;
+    color: $lightBrown;
+
+    &:hover{
+      color: $brown;
+      border: none;
+      text-decoration: none;
+    }
+  }
+
+}
+
+.flash{
+  animation-name: example;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  //animation-direction: alternate;
+}
+
+@keyframes example {
+  0%  {color: #99b3ff;}
+  20%  {color: #3366ff;}
+  40%  {color: #0033cc;}
+  60% {color: #001a66;}
+  80%  {color: #0033cc;}
+  100% { color: #3366ff;}
+}
+
+.playBoard{
+  position: relative;
+  height: $gameHeight;
+  width: $gameWidth;
+  margin: auto;
+  overflow: hidden;
+  color: $whiteColor;
+  background: radial-gradient( $lightGreen 20%, $greenColor 90%);
+
+  & .menu{
+    padding-top: 50px;
+  }
+  & .xOrO{
+    padding-top: 30px;
+  }
+}
+
+button{
+  border: 2px dashed transparent;
+  font-family: "Architects Daughter", "Helvetica", "sans-serif";
+  background: none;
+  margin: 5px;
+  padding: 3px;
+  font-size: 25px;
+  color: $lightGrey;
+  text-decoration: none;
+  outline: none;
+  &:hover{
+    border: 2px dashed $whiteColor;
+    border-radius: 30%;
+    color: $whiteColor;
+  }
+  &:active{
+    transform: translateY(3px);
+  }
+  &.backToMenu{
+    display: block;
+    margin: auto;
+  }
+  &.x, &.o{
+    font-size: 50px;
+  }
+}
+
+[class$="Message"], .xOrO, .menu, #canvas, .modal, .battleField {
+  display: none;
+}
+
+.menu{
+  display: block;
+}
+
+
+.battleField{
+  box-sizing: border-box;
+  width: $gameWidth;
+  height:$gameHeight;
+}
+#myCanvas {
+  position: absolute;
+  left: 0;
+  //border: 2px solid white;
+  width: $gameWidth;
+  height: $gameHeight;
+  z-index: 0;
+  top: 0;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+ol{
+  width: $gameWidth;
+  height: $gameHeight;
+  position: absolute;
+  left: 0px;
+  padding-left:0px;
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+  box-sizing: border-box;
+  & li{
+    display: inline-block;
+    opacity: 0;
+    font-size: 90px;
+    margin: auto;
+    text-align: center;
+    width: $xoWidth;
+    height: $xoWidth;
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 0; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: $gameWidth; /* Full width */
+  height: $gameWidth; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  //display: block;
+  font-size: 40px;
+  line-height: 330px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Add Animation */
+.modal-content {
+  animation-name: zoom;
+  animation-duration: 1s;
+
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)}
+  to {transform: scale(1)}
+}

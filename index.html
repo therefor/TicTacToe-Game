@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>井字棋游戏</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <!-- base url -->
+    <!--base href="/"-->
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+<div class = "main">
+    <div class = "frame">
+
+        <div class = "scoreBoard">
+            <div class = "playerOne"><span id = "pOne"></span>: <span id = "scoreOne">0</span></div>
+            <div class = "playerTwo"><span id = "pTwo"></span>: <span id = "scoreTwo">0</span></div>
+            <div><button class = "reset">reset</button></div>
+        </div>
+
+        <div class = "playBoard">
+
+            <div class = "menu">
+                <h1 class = "menuTitle">How do you want to play?</h1>
+                <button class = "oneP">One Player</button>
+                <button class = "twoP">Two Player</button>
+            </div>
+
+            <div class = "xOrO">
+                <h1 class = "menuTitle">Would you like to be X or O?</h1>
+                <button class = "x">X</button>
+                <button class = "o">O</button>
+                <button class = "backToMenu"><i class="fa fa-arrow-left" aria-hidden="true"></i> back</button>
+            </div>
+
+            <div class = "battleField">
+                <div class = "modal drawMessage">
+                    <p class = "modal-content">Draw Game</p>
+                </div>
+                <canvas id = "myCanvas">asdfaf</canvas>
+                <ol class="boxes" type = "1">
+                    <li class = "xo" value = "1">L</li>
+                    <li class = "xo" value = "2">L</li>
+                    <li class = "xo" value = "3">L</li>
+                    <li class = "xo" value = "4">L</li>
+                    <li class = "xo" value = "5">L</li>
+                    <li class = "xo" value = "6">L</li>
+                    <li class = "xo" value = "7">L</li>
+                    <li class = "xo" value = "8">L</li>
+                    <li class = "xo" value = "9"id = "click">L</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
